@@ -45,7 +45,7 @@ class App extends Component {
     const style = {
       backgroundColor: 'white',
       font: 'inherit',
-      border: '1px solid blue',
+      border: '1px solid #333',
       padding: '8px'
     }
 
