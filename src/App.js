@@ -18,18 +18,20 @@ class App extends Component {
       return person.id === id;
     });
 
-    const person = {
-      ...this.state.persons[personIndex]
-    }
-    person.name = event.target.value;
-    
-    const persons = [...this.state.persons];
-    persons[personIndex] = person;
+   const person = {
+     ...this.state.persons[personIndex]
+   };
 
-    this.setState({persons: persons}); 
+   person.name = event.target.value;
+
+   const persons = [...this.state.persons];
+
+   persons[personIndex] = person;
+
+   this.setState({persons})
   };
 
-  togglePersonsHandler = () => {
+  togglePersonsHandler = () =>   {
     const doesShow = this.state.showPersons;
     this.setState({showPersons: !doesShow});
   };
@@ -46,7 +48,8 @@ class App extends Component {
       backgroundColor: 'white',
       font: 'inherit',
       border: '1px solid #333',
-      padding: '8px'
+      padding: '8px',
+      cursor: 'pointer'
     }
 
     let persons = null;
@@ -75,7 +78,8 @@ class App extends Component {
         <p>This is really working</p>
         <button 
           style={style}
-          onClick={this.togglePersonsHandler} >Toggle Persons
+          onClick={this.togglePersonsHandler}>
+            Toggle Persons
         </button>
 
         {persons}
