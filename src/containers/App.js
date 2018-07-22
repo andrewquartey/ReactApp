@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import Person from './components/Person';
-import  Radium from 'radium';
+import Person from '../components/Person/Person';
+import  Radium, {StyleRoot} from 'radium';
 
 class App extends Component {
   
@@ -62,19 +62,21 @@ class App extends Component {
 
     if(this.state.showPersons) {
       persons = (
-        <div>
-          {this.state.persons.map((person, index) => {
-             return ( 
-              <Person 
-                  click={() => this.deletePersonHandler(index)} 
-                  changed={(event) => this.nameChangedHandler(event, person.id)}
-                  name={person.name} 
-                  age={person.age}
-                  key={person.id}
-                  />
-             );
-          })}
-        </div>
+        <StyleRoot>
+          <div>
+            {this.state.persons.map((person, index) => {
+              return ( 
+                <Person 
+                    click={() => this.deletePersonHandler(index)} 
+                    changed={(event) => this.nameChangedHandler(event, person.id)}
+                    name={person.name} 
+                    age={person.age}
+                    key={person.id}
+                    />
+              );
+            })}
+          </div>
+        </StyleRoot>
       );
       style.backgroundColor = 'red';
       style[':hover'] = {
