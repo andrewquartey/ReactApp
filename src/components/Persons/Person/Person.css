@@ -10,3 +10,10 @@
 .Person:hover {
     box-shadow: 1px 1px 1px #ccc;
 }
+
+
+@media (min-width:500px) {
+    .Person {
+        width: 450px;
+    }
+}

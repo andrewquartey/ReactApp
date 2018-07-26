@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import classes from './App.css';
 import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit'; 
 
@@ -45,32 +45,24 @@ class App extends Component {
   };
 
   render() {
-    const style = {
-      backgroundColor: 'green',
-      color: 'white',
-      font: 'inherit',
-      border: '1px solid #333',
-      padding: '8px',
-      cursor: 'pointer',
-    }
 
     let persons = null;
 
-    if(this.state.showPersons) {
-      persons = (
-          <div>
-            <Persons 
-              persons={this.state.persons}
-              clicked={this.deletePersonHandler}
-              changed={this.nameChangedHandler}
-              />
-          </div>
-      );
-      style.backgroundColor = 'red';
+    if(this.state.showPersons) { 
+      persons = <Persons 
+                  persons={this.state.persons}
+                  clicked={this.deletePersonHandler}
+                  changed={this.nameChangedHandler}
+                  />
     }
 
     return (
-      <div className='.App'>
+      <div className={classes.App}>
+        <Cockpit 
+          persons={this.state.persons}
+          showPersons = {this.state.showPersons}
+          clicked = {this.togglePersonsHandler}
+        />
         {persons}
       </div>
       // <div className="App">
